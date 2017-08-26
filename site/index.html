@@ -79,7 +79,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
             <div class="animated box-team wow bounceInDown">
-              <div class="TableSeats"></div>
+              <div id="seat1" class="TableSeats"></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" data-wow-delay="0.3s">
@@ -161,6 +161,13 @@
 	</footer>
 
 	 <!-- js -->
+  <script>
+  setTimeout(function() {
+    document.getElementById("seat1").style.background = "#689ba9";
+  }, 1000);
+
+
+  </script>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.smooth-scroll.min.js"></script>
