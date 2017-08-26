@@ -162,10 +162,36 @@
 
 	 <!-- js -->
   <script>
-  setTimeout(function() {
-    document.getElementById("seat1").style.background = "#689ba9";
-  }, 1000);
 
+  // $.getJSON('http://WeCamSee/dclibdata', function(data) {
+
+  //}); -->
+
+  var myObj, myJSON, text, obj;
+
+  //Storing data:
+  myObj = { "seat1":"true", "seat2":"true", "seat3":"true", "seat4":"false" };
+  myJSON = JSON.stringify(myObj);
+  localStorage.setItem("testJSON", myJSON);™
+
+  //Retrieving data:
+  text = localStorage.getItem("testJSON");
+  obj = JSON.parse(text);
+
+  setTimeout(function() {
+    if (JSON.obj.seat1 == "true") {
+      document.getElementById("seat1").style.background = "#689ba9";
+    }
+    if (obj.seat2 == "true") {
+      document.getElementById("seat2").style.background = "#689ba9";
+    }
+    if (obj.seat3 == "true") {
+      document.getElementById("seat3").style.background = "#689ba9";
+    }
+    if (obj.seat4 == "true") {
+      document.getElementById("seat4").style.background = "#689ba9";
+    }
+  }, 1000);
 
   </script>
   <script src="js/jquery.js"></script>
