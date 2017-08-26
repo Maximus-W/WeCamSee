@@ -8,8 +8,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/style.css" rel="stylesheet" media="screen">
 	  <link href="color/default.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="animate.min.css">
 	<script src="js/modernizr.custom.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"> </script>
     <!-- =======================================================
         Theme Name: Mamba
         Theme URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
@@ -162,37 +162,31 @@
 
 	 <!-- js -->
   <script>
-  //document.getElementById("seat1").style.background = "#689ba9";
 
-  $.getJSON('dclibdata.json', function(data) {
-    document.getElementById("seat1").style.background = "#689ba9";
 
-    if (data.seat1 == "true") {
+
+  setTimeout(function() {
+    var myJSON = '{ "seat1":"true", "seat2":"false", "seat3":"true", "seat4":"false" }';
+    var myObj = JSON.parse(myJSON);
+    if (myObj.seat1 == "true") {
       document.getElementById("seat1").style.background = "#689ba9";
     }
-    if (data.seat2 == "true") {
+    if (myObj.seat2 == "true") {
       document.getElementById("seat2").style.background = "#689ba9";
     }
-    if (data.seat3 == "true") {
+    if (myObj.seat3 == "true") {
       document.getElementById("seat3").style.background = "#689ba9";
     }
-    if (data.seat4 == "true") {
+    if (myObj.seat4 == "true") {
       document.getElementById("seat4").style.background = "#689ba9";
     }
- });
-
-  //setTimeout(function() {
-  //  ;
-  //}, 1000);
+  }, 1000);
 
   </script>
-  <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.smooth-scroll.min.js"></script>
 	<script src="js/jquery.dlmenu.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
-
   </body>
 </html>
