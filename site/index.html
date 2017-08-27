@@ -155,6 +155,68 @@
        </div>
      </div>
 
+       <br>    ***     </br>
+
+
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div class="animated box-team wow bounceInDown">
+         <div id="container1">
+           <img src="img/chair.png" alt=""/>
+           <span><h7>Seat 13</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 14</h7></span>
+         </div>
+         <div id="container3">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 15</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 16</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 17</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 18</h7></span>
+         </div>
+       </div>
+     </div>
+     <div id="container7"></div>
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       <div class="animated box-team wow bounceInDown">
+         <div id="container4">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 19</h7></span>
+         </div>
+         <div id="container5">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 20</h7></span>
+         </div>
+         <div id="container6">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 21</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 22</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 23</h7></span>
+         </div>
+         <div id="container2">
+           <img src="img/chair.png" alt="" />
+           <span><h7>Seat 24</h7></span>
+         </div>
+       </div>
+     </div>
+
+
 
    </section>
 
@@ -222,6 +284,8 @@
   <script>
 
   setTimeout(function() {
+  	var json = require('ken_backend/libdata.json')
+	var myData = JSON.parse(json)
     var myJSON = '{ "container1":"true", "container2":"false", "container3":"true", "container4":"false", "container5":"false", "container6":"false"}';
     var myObj = JSON.parse(myJSON);
     if (myObj.container1 == "true") {

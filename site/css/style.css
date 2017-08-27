@@ -666,13 +666,17 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
-	 text-align: center;
+	 line-height: 1;
+
 }
 
 #container1 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container2 {
@@ -685,12 +689,16 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
+	 line-height: 1;
 }
 
 #container2 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container3 {
@@ -703,12 +711,16 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
+	 line-height: 1;
 }
 
 #container3 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container4 {
@@ -721,12 +733,16 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
+	 line-height: 1;
 }
 
 #container4 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container5 {
@@ -739,12 +755,16 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
+	 line-height: 1;
 }
 
 #container5 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container6 {
@@ -757,12 +777,16 @@ more media queries
 	 padding-bottom: 10%; /* = width for a 1:1 aspect ratio */
 	 margin:0%;
 	 overflow:hidden;
-	 line-height: .8;
+	 line-height: 1;
 }
 
 #container6 img {
 	padding-top: 15%;
-   width: 50%;
+	display: block;
+	margin-left:auto;
+	margin-right: auto;
+	margin: 0 auto;
+  width: 50%;
 }
 
 #container7 {
