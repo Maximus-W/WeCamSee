@@ -21,12 +21,15 @@ kernelClose = numpy.ones((11,11), numpy.uint8)
 
 area_thresh = 500
 
-seat1_status = "unoccupied"
-seat2_status = "unoccupied"
+seat1_status = True
+seat2_status = True
 seat1_value = 0
 seat2_value = 0
 
-
+# Update the text file
+with open('libdata.json', 'w') as file:
+    json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
+    file.write(json.dumps(json_dict).strip('"'))
 
 
 
@@ -74,7 +77,7 @@ while(cap.isOpened()):
             img = cv2.rectangle(vid, (x, y), (x + w, y + h), (0,0,255), 2)
 
             if centerx >= 100 and centerx <= 250 and centery >= 50 and centery <= 700:
-                seat1_status = "occupied"
+                seat1_status = False
                 seat1_value = 1
 
                 #vid = cv2.circle(vid,(50,300),20,(0,0,255), -1)
@@ -82,7 +85,7 @@ while(cap.isOpened()):
                 vid = cv2.putText(vid, 'OCCUPIED', (50, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             elif centerx >= 350 and centerx <= 400 and centery >= 50 and centery <= 500:
-                seat2_status = "occupied"
+                seat2_status = False
                 seat2_value = 1
 
                 #vid = cv2.circle(vid, (500, 300), 20, (0, 0, 255), -1)
@@ -93,8 +96,8 @@ while(cap.isOpened()):
             #elif centerx
 
             else:
-                seat1_status = "Unoccupied"
-                seat2_status = "unoccupiedDRADFER"
+                seat1_status = True
+                seat2_status = True
                 seat1_value = 0
                 seat2_value = 0
 
@@ -115,7 +118,8 @@ while(cap.isOpened()):
 
     # Update the text file
     with open('libdata.json', 'w') as file:
-        json.dump([seat1_status, seat2_status], file)
+        json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
+        file.write(json.dumps(json_dict).strip('"'))
 
 
     cv2.imshow('test', cv2.resize(vid,(1000,800)))
