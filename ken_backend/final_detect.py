@@ -102,7 +102,6 @@ while(cap.isOpened()):
                 seat2_value = 0
 
 
-
             value_array = [seat1_value,seat2_value]
 
 
@@ -118,7 +117,7 @@ while(cap.isOpened()):
 
     # Update the text file
     with open('libdata.json', 'w') as file:
-        json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
+        json_dict = {'container1': seat1_status, 'container2': seat2_status}
         file.write(json.dumps(json_dict).strip('"'))
 
 

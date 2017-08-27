@@ -1,5 +1,3 @@
-{%load staticfiles %}
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,11 +5,10 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- css -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
-	  <link href="{% static 'color/default.css' %}" rel="stylesheet" media="screen">
-	  <script src="{% static 'js/modernizr.custom.js' %}"></script>
-    <script src= "{% static 'http://code.jquery.com/jquery-latest.min.js' %}"> </script>
+    <link href="css/bootstrap.min.css " rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+	  <link href="color/default.css" rel="stylesheet" media="screen">
+	  <script src="js/modernizr.custom.js"></script>
     <!-- =======================================================
         Theme Name: Mamba
         Theme URL: https://bootstrapmade.com/mamba-one-page-bootstrap-template-free/
@@ -107,7 +104,7 @@
            <img src="img/chair.png" alt="" />
            <span><h7>Seat 2</h7></span>
          </div>
-         <div id="container3">
+         <div id="container2">
            <img src="img/chair.png" alt="" />
            <span><h7>Seat 3</h7></span>
          </div>
@@ -128,7 +125,7 @@
      <div id="container7"></div>
      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
        <div class="animated box-team wow bounceInDown">
-         <div id="container4">
+         <div id="container3">
            <img src="img/chair.png" alt="" />
            <span><h7>Seat 7</h7></span>
          </div>
@@ -283,36 +280,27 @@
 	 <!-- js -->
   <script>
 
-  setTimeout(function() {
-  	var json = require('ken_backend/libdata.json')
-	var myData = JSON.parse(json)
-    var myJSON = '{ "container1":"true", "container2":"false", "container3":"true", "container4":"false", "container5":"false", "container6":"false"}';
-    var myObj = JSON.parse(myJSON);
-    if (myObj.container1 == "true") {
-      document.getElementById("container1").style.background = "#689ba9";
-    }
-    if (myObj.container2 == "true") {
-      document.getElementById("container2").style.background = "#689ba9";
-    }
-    if (myObj.container3 == "true") {
-      document.getElementById("container3").style.background = "#689ba9";
-    }
-    if (myObj.container4 == "true") {
-      document.getElementById("container4").style.background = "#689ba9";
-    }
-    if (myObj.container5 == "true") {
-      document.getElementById("container5").style.background = "#689ba9";
-    }
-    if (myObj.container6 == "true") {
-      document.getElementById("container6").style.background = "#689ba9";
-    }
-  }, 1000);
+  setInterval(function() {
+     $.getJSON( "test.json", function( data ) {
+      if (data.seat1 == "true") {
+        document.getElementById("container1").style.background = "#689ba9";
+      } else {
+        document.getElementById("container1").style.background = "#9bdff2";
+      }
+      if (data.seat2 == "true") {
+        document.getElementById("container3").style.background = "#689ba9";
+      } else {
+        document.getElementById("container3").style.background = "#9bdff2";
+      }
+		});
+	}, 2000);
 
   </script>
-  <script src="{% 'js/bootstrap.min.js' %}"></script>
-	<script src="{% 'js/jquery.smooth-scroll.min.js' %}"></script>
-	<script src="{% 'js/jquery.dlmenu.js' %}"></script>
-	<script src="{% 'js/wow.min.js' %}"></script>
-	<script src="{% 'js/custom.js' %}"></script>
+  <script src= "http://code.jquery.com/jquery-latest.min.js"> </script>
+  <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.smooth-scroll.min.js"></script>
+	<script src="js/jquery.dlmenu.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/custom.js"></script>
   </body>
 </html>

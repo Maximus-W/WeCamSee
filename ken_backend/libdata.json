@@ -1,1 +1,4 @@
-{"seat1": true, "seat2": true}
+{
+  "container1": "false",
+  "container3": "false"
+}
