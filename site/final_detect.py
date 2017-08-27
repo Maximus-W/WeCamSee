@@ -21,14 +21,22 @@ kernelClose = numpy.ones((11,11), numpy.uint8)
 
 area_thresh = 500
 
-seat1_status = True
-seat2_status = True
+seat1_status = False
+seat2_status = False
 seat1_value = 0
 seat2_value = 0
 
 # Update the text file
-with open('libdata.json', 'w') as file:
-    json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
+with open('test.json', 'w') as file:
+    if seat1_status and seat2_status:
+        json_dict = {"seat1": "true", "seat2": "true"}
+    elif seat1_status:
+        json_dict = {"seat1": "true", "seat2": "false"}
+    elif seat2_status:
+        json_dict = {"seat1": "false", "seat2": "true"}
+    else:
+        json_dict = {"seat1": "false", "seat2": "false"}
+
     file.write(json.dumps(json_dict).strip('"'))
 
 
@@ -77,7 +85,7 @@ while(cap.isOpened()):
             img = cv2.rectangle(vid, (x, y), (x + w, y + h), (0,0,255), 2)
 
             if centerx >= 100 and centerx <= 250 and centery >= 50 and centery <= 700:
-                seat1_status = False
+                seat1_status = True
                 seat1_value = 1
 
                 #vid = cv2.circle(vid,(50,300),20,(0,0,255), -1)
@@ -85,7 +93,7 @@ while(cap.isOpened()):
                 vid = cv2.putText(vid, 'OCCUPIED', (50, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             elif centerx >= 350 and centerx <= 400 and centery >= 50 and centery <= 500:
-                seat2_status = False
+                seat2_status = True
                 seat2_value = 1
 
                 #vid = cv2.circle(vid, (500, 300), 20, (0, 0, 255), -1)
@@ -96,8 +104,8 @@ while(cap.isOpened()):
             #elif centerx
 
             else:
-                seat1_status = True
-                seat2_status = True
+                seat1_status = False
+                seat2_status = False
                 seat1_value = 0
                 seat2_value = 0
 
@@ -116,8 +124,15 @@ while(cap.isOpened()):
     print(value_array)
 
     # Update the text file
-    with open('libdata.json', 'w') as file:
-        json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
+    with open('test.json', 'w') as file:
+        if seat1_status and seat2_status:
+            json_dict = {"seat1": "true", "seat2": "true"}
+        elif seat1_status:
+            json_dict = {"seat1": "true", "seat2": "false"}
+        elif seat2_status:
+            json_dict = {"seat1": "false", "seat2": "true"}
+        else:
+            json_dict = {"seat1": "false", "seat2": "false"}
         file.write(json.dumps(json_dict).strip('"'))
 
 
