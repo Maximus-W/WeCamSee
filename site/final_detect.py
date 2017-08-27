@@ -19,14 +19,15 @@ back_sub = cv2.createBackgroundSubtractorMOG2(detectShadows=True)
 kernelOpen = numpy.ones((3,3), numpy.uint8)
 kernelClose = numpy.ones((11,11), numpy.uint8)
 
-area_thresh = 500
+area_thresh = 600
 
 seat1_status = "false"
 seat2_status = "false"
 seat1_value = 0
 seat2_value = 0
 
-# Update the text file
+# Update the text file\
+counter = 0
 with open('test.json', 'w') as file:
     json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
     file.write(json.dumps(json_dict))
@@ -36,8 +37,17 @@ with open('test.json', 'w') as file:
 while(cap.isOpened()):
     ret, vid = cap.read()
 
+    counter += 1
+
+    if (counter % 56 == 0):
+        seat1_status = "false"
+        seat1_value = 0
+        seat2_status = "false"
+        seat2_value = 0
+
     #BILL
     vid = cv2.circle(vid,(170,150),10,(255,0,0),-1)
+
 
     #MARY
     vid = cv2.circle(vid,(400,150),10,(255,0,0),-1)
@@ -76,7 +86,7 @@ while(cap.isOpened()):
             centery =cy
             img = cv2.rectangle(vid, (x, y), (x + w, y + h), (0,0,255), 2)
 
-            if centerx > 100 and centerx <= 350:
+            if centerx > 100 and centerx <= 300 and centery <= 300:
                 seat1_status = "true"
                 seat1_value = 1
 
@@ -84,7 +94,7 @@ while(cap.isOpened()):
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 vid = cv2.putText(vid, 'OCCUPIED', (50, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
-            elif centerx >= 350 and centerx <= 500:
+            if centerx >= 350 and centerx <= 500 and centery <= 450:
                 seat2_status = "true"
                 seat2_value = 1
 
@@ -92,11 +102,7 @@ while(cap.isOpened()):
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 vid = cv2.putText(vid, 'OCCUPIED', (350, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
-            else:
-                seat1_status = "false"
-                seat1_value = 0
-                seat2_status = "false"
-                seat2_value = 0
+
 
 
             value_array = [seat1_value,seat2_value]
