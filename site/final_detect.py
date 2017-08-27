@@ -21,15 +21,15 @@ kernelClose = numpy.ones((11,11), numpy.uint8)
 
 area_thresh = 500
 
-seat1_status = True
-seat2_status = True
+seat1_status = "false"
+seat2_status = "false"
 seat1_value = 0
 seat2_value = 0
 
 # Update the text file
-with open('libdata.json', 'w') as file:
+with open('test.json', 'w') as file:
     json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
-    file.write(json.dumps(json_dict).strip('"'))
+    file.write(json.dumps(json_dict))
 
 
 
@@ -76,29 +76,26 @@ while(cap.isOpened()):
             centery =cy
             img = cv2.rectangle(vid, (x, y), (x + w, y + h), (0,0,255), 2)
 
-            if centerx >= 100 and centerx <= 250 and centery >= 50 and centery <= 700:
-                seat1_status = False
+            if centerx > 100 and centerx <= 350:
+                seat1_status = "true"
                 seat1_value = 1
 
                 #vid = cv2.circle(vid,(50,300),20,(0,0,255), -1)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 vid = cv2.putText(vid, 'OCCUPIED', (50, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
-            elif centerx >= 350 and centerx <= 400 and centery >= 50 and centery <= 500:
-                seat2_status = False
+            elif centerx >= 350 and centerx <= 500:
+                seat2_status = "true"
                 seat2_value = 1
 
                 #vid = cv2.circle(vid, (500, 300), 20, (0, 0, 255), -1)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 vid = cv2.putText(vid, 'OCCUPIED', (350, 300), font, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
-
-            #elif centerx
-
             else:
-                seat1_status = True
-                seat2_status = True
+                seat1_status = "false"
                 seat1_value = 0
+                seat2_status = "false"
                 seat2_value = 0
 
 
@@ -116,9 +113,9 @@ while(cap.isOpened()):
     print(value_array)
 
     # Update the text file
-    with open('libdata.json', 'w') as file:
+    with open('test.json', 'w') as file:
         json_dict = {'seat1': seat1_status, 'seat2': seat2_status}
-        file.write(json.dumps(json_dict).strip('"'))
+        file.write(json.dumps(json_dict))
 
 
     cv2.imshow('test', cv2.resize(vid,(1000,800)))
@@ -127,3 +124,8 @@ while(cap.isOpened()):
 
 cap.release()
 cv2.destroyAllWindows()
+
+# Update the text file
+with open('test.json', 'w') as file:
+    json_dict = {'seat1': "false", 'seat2': "false"}
+    file.write(json.dumps(json_dict))
