@@ -282,6 +282,8 @@
   <script>
 
   setTimeout(function() {
+  	var json = require('ken_backend/libdata.json')
+	var myData = JSON.parse(json)
     var myJSON = '{ "container1":"true", "container2":"false", "container3":"true", "container4":"false", "container5":"false", "container6":"false"}';
     var myObj = JSON.parse(myJSON);
     if (myObj.container1 == "true") {
