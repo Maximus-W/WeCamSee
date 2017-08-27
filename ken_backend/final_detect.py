@@ -6,6 +6,8 @@ import time
 
 import matplotlib
 
+import json
+
 #loads video
 cap = cv2.VideoCapture('seat.mp4')
 
@@ -110,6 +112,11 @@ while(cap.isOpened()):
     print("SEAT1: ",seat1_status)
     print("SEAT2: ",seat2_status)
     print(value_array)
+
+    # Update the text file
+    with open('libdata.json', 'w') as file:
+        json.dump([seat1_status, seat2_status], file)
+
 
     cv2.imshow('test', cv2.resize(vid,(1000,800)))
     if cv2.waitKey(30) & 0xFF == ord('q'):
