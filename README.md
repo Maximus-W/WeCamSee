@@ -1,2 +1,3 @@
 # WeCamSee
-Using the hottest Imaging recognition technology with MACHINE LEARNING and BIG DATA to analyze human foot traffic.
+Using image recognition with OpenCV to analyze human foot traffic.
+1st Place at Hack the 6ix 2017
